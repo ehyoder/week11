@@ -14,8 +14,14 @@ app = Flask(__name__)
 # Define what to do when the user hits the index route
 @app.route("/")
 def home():
-    print("This is the Hawaii Climate Analysis App")
-    return jsonify
+    return(
+        f"This is the Hawaii Climate Analysis App"
+        f"Avalable Routes:<br/>"
+        f"/api/v1.0/precipitation<br/>"
+        f"/api/v1.0/stations<br/>"
+        f"/api/v1.0/tobs<br/>"
+        f"/api/v1.0/temp/start/end"
+    )
 
 # Query for the dates and temps from last year
 # Convert query results to a dictionary using date as the key and tobs as the value
@@ -31,3 +37,6 @@ def home():
 @app.route("tmin, tavg, tmax")
 # When given the start only, calculate 'TMIN', 'TAVG', and 'TMAX' for all dates greater than and equal to the start date
 # When given the start and end date, calculate above for dates between the start and end date inclusive
+
+if __name__ == "__main__":
+    app.run(debug=True)
