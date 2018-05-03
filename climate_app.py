@@ -28,13 +28,22 @@ def home():
 # Return the json of dict
 
 # Return a json list of stations from dataset
-@app.route("list of stations")
+@app.route("/api/v1.0/stations")
+    def  results = session.query(Station.stations).all()
+    # Unravel results into an array
+    stations = list(np.ravel(results))
+    return jsonify(stations)
 
 # Return a json list of tobs for the previous year
-@app.route("list of tobs")
+@app.route("api/v1.0/tobs")
+    def  results = session.query(Measurement.tobs).all()
+    # Unravel results into an array
+    stations = list(np.ravel(results))
+    return jsonify(tobs)
 
 # Return a json list of the min temp, avg temp, and max temp for given start-end range
-@app.route("tmin, tavg, tmax")
+@app.route("/api/v1.0/temp/start/end")
+    def results = session.query
 # When given the start only, calculate 'TMIN', 'TAVG', and 'TMAX' for all dates greater than and equal to the start date
 # When given the start and end date, calculate above for dates between the start and end date inclusive
 
