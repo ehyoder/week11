@@ -45,7 +45,7 @@ def stations():
     return jsonify(stations)
 
 # Return a json list of tobs for the previous year
-@app.route("api/v1.0/tobs")
+@app.route("/api/v1.0/tobs")
 def tobs():
     results = session.query(Measurement.tobs).all()
     last_year = dt.date.today() - dt.timedelta(days=365)
